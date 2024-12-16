@@ -14,8 +14,10 @@ public class BaseListDiffCallback<T extends ListDiffInterface<T>> extends DiffUt
 
 
     @Override
-    public Object getChangePayload( T oldItem,T newItem) {
-
+    public Object getChangePayload(T oldItem, T newItem) {
+        if (!oldItem.equals(newItem)) {
+            return newItem;
+        }
         return null;
     }
 }
